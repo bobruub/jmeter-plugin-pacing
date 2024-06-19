@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.perfteam.jmeter.redis.sampler.RedisSampler guiclass="com.perfteam.jmeter.redis.sampler.gui.RedisSamplerGuiPing" testclass="com.perfteam.jmeter.redis.sampler.RedisSampler" testname="Redis Sampler - PING" enabled="true">
+          <stringProp name="Redis.label">Redis Sampler - PING</stringProp>
+          <stringProp name="Redis.redisServer">performance-testing-redis.olqarv.ng.0001.apse2.cache.amazonaws.com</stringProp>
+          <stringProp name="Redis.redisPort">6379</stringProp>
+          <stringProp name="Redis.redisType">PING</stringProp>
+        </com.perfteam.jmeter.redis.sampler.RedisSampler>
+        <hashTree/>
+        <com.perfteam.jmeter.redis.sampler.RedisSampler guiclass="com.perfteam.jmeter.redis.sampler.gui.RedisSamplerGuiLoad" testclass="com.perfteam.jmeter.redis.sampler.RedisSampler" testname="Redis Sampler - LOAD" enabled="true">
+          <stringProp name="Redis.label">Redis Sampler - LOAD</stringProp>
+          <stringProp name="Redis.redisServer">performance-testing-redis.olqarv.ng.0001.apse2.cache.amazonaws.com</stringProp>
+          <stringProp name="Redis.redisPort">6379</stringProp>
+          <stringProp name="Redis.redisSet">blert</stringProp>
+          <stringProp name="Redis.redisFileToLoad">data/test.txt</stringProp>
+          <stringProp name="Redis.redisType">LOAD</stringProp>
+        </com.perfteam.jmeter.redis.sampler.RedisSampler>
+        <hashTree/>
+        <com.perfteam.jmeter.redis.sampler.RedisSampler guiclass="com.perfteam.jmeter.redis.sampler.gui.RedisSamplerGuiWrite" testclass="com.perfteam.jmeter.redis.sampler.RedisSampler" testname="Redis Sampler - WRITE" enabled="true">
+          <stringProp name="Redis.label">Redis Sampler - WRITE</stringProp>
+          <stringProp name="Redis.redisServer">performance-testing-redis.olqarv.ng.0001.apse2.cache.amazonaws.com</stringProp>
+          <stringProp name="Redis.redisPort">6379</stringProp>
+          <stringProp name="Redis.redisSet">blert</stringProp>
+          <stringProp name="Redis.redisWriteData">blerty blerty</stringProp>
+          <stringProp name="Redis.redisType">WRITE</stringProp>
+        </com.perfteam.jmeter.redis.sampler.RedisSampler>
+        <hashTree/>
+        <com.perfteam.jmeter.redis.sampler.RedisSampler guiclass="com.perfteam.jmeter.redis.sampler.gui.RedisSamplerGuiRead" testclass="com.perfteam.jmeter.redis.sampler.RedisSampler" testname="Redis Sampler - READ" enabled="true">
+          <stringProp name="Redis.label">Redis Sampler - READ</stringProp>
+          <stringProp name="Redis.redisServer">performance-testing-redis.olqarv.ng.0001.apse2.cache.amazonaws.com</stringProp>
+          <stringProp name="Redis.redisPort">6379</stringProp>
+          <stringProp name="Redis.redisSet">blert</stringProp>
+          <stringProp name="Redis.redisReadMethod"></stringProp>
+          <stringProp name="Redis.redisType">READ</stringProp>
+          <boolProp name="Redis.keepData">true</boolProp>
+        </com.perfteam.jmeter.redis.sampler.RedisSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
